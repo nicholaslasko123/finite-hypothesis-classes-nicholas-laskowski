@@ -1,0 +1,29 @@
+# FixMe Part1:
+
+```bash
+# FIXME:
+H_binary = lambda d: [lambda x: +1, lambda x: -1]
+
+H_axis = lambda d: [lambda x, i=i: sign(x[i]) for i in range(d)]
+
+H_axis2 = lambda d: [lambda x, sigma=sigma, i=i: sigma * sign(x[i])
+                     for sigma in [-1, 1] for i in range(d)]
+
+H_multiaxis2 = lambda d: [lambda x, sigma_vec=sigma_vec: [sigma_vec[i] * sign(x[i]) for i in range(d)]
+                          for sigma_vec in list(set_exp([-1, 1], d))]
+
+H_multiaxis3 = lambda d: [lambda x, sigma_vec=sigma_vec: sign(sum(sigma_vec[i] * sign(x[i]) for i in range(d)))
+                          for sigma_vec in list(set_exp([-1, 0, 1], d))]
+
+ 
+print(f'  d {"len(H_binary(d))":>20}{"len(H_axis(d))":>20}{"len(H_axis2(d))":>20}{"len(H_multiaxis2(d))":>25}{"len(H_multiaxis3(d))":>25}')
+for d in range(1, 11):
+    print(f' {d:2} {len(H_binary(d)):20d}{len(H_axis(d)):20d}{len(H_axis2(d)):20d}{len(H_multiaxis2(d)):25d}{len(H_multiaxis3(d)):25d}')
+```
+
+
+
+
+
+
+
